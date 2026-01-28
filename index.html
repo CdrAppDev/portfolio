@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Venture Forge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px;
+            border-bottom: 1px solid #222;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filters {
+            padding: 30px 40px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #999;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+        }
+
+        .portfolio {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 40px 0 24px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #333;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #333 0%, #222 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .card-description {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 40px;
+            border-top: 1px solid #222;
+            color: #444;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header, .portfolio, .filters {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Venture Forge</h1>
+        <p>A portfolio of companies built to disrupt, scale, and create lasting value across industries.</p>
+    </header>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">30</div>
+            <div class="stat-label">Portfolio Companies</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Home Services</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Healthcare</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Legal Tech</div>
+        </div>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="home-services">Home Services</button>
+        <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+        <button class="filter-btn" data-filter="legal">Legal Tech</button>
+        <button class="filter-btn" data-filter="consumer">Consumer</button>
+        <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+    </div>
+
+    <main class="portfolio">
+
+        <h2 class="section-title">Residential Home Services</h2>
+        <div class="grid">
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🌡️</div>
+                    <div>
+                        <div class="card-title">Atmos</div>
+                        <div class="card-category">HVAC</div>
+                    </div>
+                </div>
+                <p class="card-description">Atmos is acquiring and modernizing local HVAC companies to build a tech-enabled, subscription-first home climate platform — replacing the industry's broken emergency-call model with proactive maintenance that keeps systems running and customers loyal year-round.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🏊</div>
+                    <div>
+                        <div class="card-title">Clearwater</div>
+                        <div class="card-category">Pool Maintenance</div>
+                    </div>
+                </div>
+                <p class="card-description">Clearwater acquires local pool service companies and adds IoT water monitoring, automated chemical management, and subscription maintenance — turning a manual, inconsistent trade into a smart, hands-off ownership experience.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🌿</div>
+                    <div>
+                        <div class="card-title">GrassPass</div>
+                        <div class="card-category">Lawn Care</div>
+                    </div>
+                </div>
+                <p class="card-description">GrassPass turns lawn care into a subscription you never think about — acquiring local crews, routing them with software, and giving homeowners a single app to manage mowing, treatments, and seasonal services at a flat monthly rate.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">⚡</div>
+                    <div>
+                        <div class="card-title">Lumen</div>
+                        <div class="card-category">Electrical</div>
+                    </div>
+                </div>
+                <p class="card-description">Lumen consolidates local electrical contractors into a modern, consumer-friendly brand with upfront pricing and smart-home expertise — capturing the massive residential demand driven by EV chargers, solar, and aging housing stock.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🔧</div>
+                    <div>
+                        <div class="card-title">Mainline</div>
+                        <div class="card-category">Plumbing</div>
+                    </div>
+                </div>
+                <p class="card-description">Mainline rolls up local plumbing companies under a single brand with transparent pricing, instant online booking, and membership plans — turning a fragmented, trust-deficient industry into a reliable, scalable home services platform.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🎨</div>
+                    <div>
+                        <div class="card-title">Palette</div>
+                        <div class="card-category">Painting</div>
+                    </div>
+                </div>
+                <p class="card-description">Palette acquires local painting and pressure washing companies and replaces guesswork estimates with instant AI-powered quoting, online scheduling, and guaranteed timelines — making the most visible home improvement the easiest to book.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🔌</div>
+                    <div>
+                        <div class="card-title">Revive</div>
+                        <div class="card-category">Appliance Repair</div>
+                    </div>
+                </div>
+                <p class="card-description">Revive rolls up local appliance repair techs and equips them with AI-powered diagnostics, parts prediction, and same-day scheduling — fixing an industry where homeowners currently wait days for a tech who may not even have the right part.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🏠</div>
+                    <div>
+                        <div class="card-title">Ridgeline</div>
+                        <div class="card-category">Roofing</div>
+                    </div>
+                </div>
+                <p class="card-description">Ridgeline consolidates local roofing companies and pairs them with drone inspections, satellite measurement, and insurance claim automation — turning a high-anxiety, once-a-decade purchase into a transparent, trust-first experience.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🛡️</div>
+                    <div>
+                        <div class="card-title">Sentinel</div>
+                        <div class="card-category">Pest Control</div>
+                    </div>
+                </div>
+                <p class="card-description">Sentinel acquires local pest control operators and upgrades them with smart monitoring, data-driven treatment plans, and subscription billing — replacing the spray-and-pray model with preventive, tech-enabled protection homeowners can see working.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">🔨</div>
+                    <div>
+                        <div class="card-title">Turnkey</div>
+                        <div class="card-category">Remodeling & Repairs</div>
+                    </div>
+                </div>
+                <p class="card-description">Turnkey unifies local remodeling and repair contractors under one platform with transparent scoping, fixed pricing, and real-time project tracking — eliminating the cost overruns and communication breakdowns that plague every homeowner renovation.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">📹</div>
+                    <div>
+                        <div class="card-title">Watchline</div>
+                        <div class="card-category">Security Systems</div>
+                    </div>
+                </div>
+                <p class="card-description">Watchline consolidates local security installers and combines them with a proprietary monitoring platform, smart device integration, and no-contract subscriptions — disrupting the legacy alarm industry's outdated hardware-and-lock-in model.</p>
+            </div>
+
+            <div class="card" data-category="home-services">
+                <div class="card-header">
+                    <div class="card-icon">✨</div>
+                    <div>
+                        <div class="card-title">Whiteglove</div>
+                        <div class="card-category">Cleaning</div>
+                    </div>
+                </div>
+                <p class="card-description">Whiteglove rolls up local cleaning companies and builds a hospitality-grade standard with vetted teams, app-based booking, quality scoring, and consistent results — bringing the reliability of a hotel housekeeping operation into the home.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Healthcare</h2>
+        <div class="grid">
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">🏥</div>
+                    <div>
+                        <div class="card-title">ClaimIQ</div>
+                        <div class="card-category">Revenue Cycle</div>
+                    </div>
+                </div>
+                <p class="card-description">ClaimIQ uses AI to intercept and prevent insurance claim denials before they happen — giving rural hospitals a revenue protection system that catches coding errors, flags documentation gaps, and fights underpayments automatically so small facilities stop leaving money on the table.</p>
+            </div>
+
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">🔒</div>
+                    <div>
+                        <div class="card-title">CyberShield Rural</div>
+                        <div class="card-category">Healthcare Cybersecurity</div>
+                    </div>
+                </div>
+                <p class="card-description">CyberShield delivers enterprise-grade cybersecurity to critical access hospitals that can't afford a full security team — providing 24/7 threat monitoring, compliance automation, and incident response tailored to the unique vulnerabilities of small, underfunded healthcare facilities.</p>
+            </div>
+
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">🧠</div>
+                    <div>
+                        <div class="card-title">MindBridge Rural</div>
+                        <div class="card-category">Behavioral Health</div>
+                    </div>
+                </div>
+                <p class="card-description">MindBridge embeds behavioral health services directly into rural primary care practices — closing the gap between physical and mental healthcare in communities where a standalone therapist's office doesn't exist.</p>
+            </div>
+
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">💰</div>
+                    <div>
+                        <div class="card-title">PayUp</div>
+                        <div class="card-category">Healthcare Litigation</div>
+                    </div>
+                </div>
+                <p class="card-description">PayUp is a litigation platform that helps hospitals identify insurance underpayments, score case strength, and connect with attorneys for recovery — aggregating thousands of individually uneconomic claims across hospitals into viable, multi-million dollar cases that insurers can't ignore.</p>
+            </div>
+
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <div>
+                        <div class="card-title">RHTP</div>
+                        <div class="card-category">Healthcare Strategy</div>
+                    </div>
+                </div>
+                <p class="card-description">RHTP is a strategic research and product development initiative identifying the highest-impact healthcare technology opportunities in rural South Carolina — aligning startup concepts with federal funding and real community need.</p>
+            </div>
+
+            <div class="card" data-category="healthcare">
+                <div class="card-header">
+                    <div class="card-icon">📅</div>
+                    <div>
+                        <div class="card-title">ShiftSmart Health</div>
+                        <div class="card-category">Workforce Scheduling</div>
+                    </div>
+                </div>
+                <p class="card-description">ShiftSmart uses predictive analytics to solve nurse scheduling at small hospitals — reducing overtime costs, preventing burnout, and ensuring coverage by forecasting patient volume before the schedule is even built.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Legal Tech</h2>
+        <div class="grid">
+            <div class="card" data-category="legal">
+                <div class="card-header">
+                    <div class="card-icon">⚓</div>
+                    <div>
+                        <div class="card-title">Harbor</div>
+                        <div class="card-category">Family Law</div>
+                    </div>
+                </div>
+                <p class="card-description">Harbor is a data-driven family law platform that serves both sides of the divorce process — giving families predictive insights, financial forecasting, equitable asset division, custody planning, and payment solutions to navigate marital transitions with clarity, while giving attorneys document automation, case analytics, and efficiency tools to handle more clients with better outcomes. Built on precedent-setting legal research, Harbor transforms divorce from an adversarial drain into a guided path toward stability.</p>
+            </div>
+
+            <div class="card" data-category="legal">
+                <div class="card-header">
+                    <div class="card-icon">🔍</div>
+                    <div>
+                        <div class="card-title">Rubicon</div>
+                        <div class="card-category">Deal Intelligence</div>
+                    </div>
+                </div>
+                <p class="card-description">Rubicon is an AI-powered deal intelligence platform that replaces the fragmented stack of data rooms, diligence tools, portfolio trackers, and investor reporting software with a single operating system for the entire deal lifecycle — from sourcing and due diligence through close and post-acquisition monitoring. It ingests thousands of documents, surfaces risks instantly, automates LP reporting, and gives deal teams, investors, and advisors one secure platform to move faster and make better decisions.</p>
+            </div>
+
+            <div class="card" data-category="legal">
+                <div class="card-header">
+                    <div class="card-icon">⚖️</div>
+                    <div>
+                        <div class="card-title">ThriveData</div>
+                        <div class="card-category">Personal Injury</div>
+                    </div>
+                </div>
+                <p class="card-description">ThriveData is an AI-powered platform for personal injury lawyers that automates case analysis, surfaces key insights from medical records and claims data, and streamlines the intake-to-settlement workflow — letting attorneys handle more cases, build stronger arguments faster, and focus on winning instead of paperwork.</p>
+            </div>
+
+            <div class="card" data-category="legal enterprise">
+                <div class="card-header">
+                    <div class="card-icon">🧠</div>
+                    <div>
+                        <div class="card-title">Cortex</div>
+                        <div class="card-category">Business Operating System</div>
+                    </div>
+                </div>
+                <p class="card-description">Cortex is an AI-powered business operating system that replaces your entire SaaS stack — CRM, ERP, HR, project management, finance, legal, support, and more — with a single intelligent platform that maintains itself. Instead of logging into a dozen tools and manually entering data, Cortex listens, learns, and acts across every channel you already use — conversation, email, meetings, documents — keeping your entire business current in one source of truth with zero busywork.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Consumer</h2>
+        <div class="grid">
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">🎬</div>
+                    <div>
+                        <div class="card-title">BoxSeats</div>
+                        <div class="card-category">Entertainment</div>
+                    </div>
+                </div>
+                <p class="card-description">BoxSeats deploys premium outdoor entertainment pavilions with 14-foot screens, stadium sound, and climate control into neighborhoods, venues, and major events — creating a new category between watching at home and overpaying at a bar, with an app for booking, food ordering, and group experiences. Starting with the 2026 FIFA World Cup in Dallas, with $300K secured before a single pavilion is built.</p>
+            </div>
+
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">💚</div>
+                    <div>
+                        <div class="card-title">Haystack</div>
+                        <div class="card-category">Dating</div>
+                    </div>
+                </div>
+                <p class="card-description">Haystack reimagines online dating by putting authentic conversation at the center — replacing swipe culture with a platform designed to surface genuine compatibility and make real connection easier to find.</p>
+            </div>
+
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">🏈</div>
+                    <div>
+                        <div class="card-title">Highlight</div>
+                        <div class="card-category">Youth Sports</div>
+                    </div>
+                </div>
+                <p class="card-description">Highlight puts professional videographers on the sidelines of high school games and gives student athletes a social platform to share their best moments, build a following, and get discovered by college recruiters and sponsors.</p>
+            </div>
+
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">🧊</div>
+                    <div>
+                        <div class="card-title">Lunchbox</div>
+                        <div class="card-category">Trade Worker Services</div>
+                    </div>
+                </div>
+                <p class="card-description">Lunchbox replaces the daily convenience store stop for construction and trade workers with a drive-through subscription service — a pre-packed cooler with lunch, drinks, and supplies waiting on their commute route every morning, managed through an app, and swapped out daily. Cheaper than convenience stores, faster than a drive-through, with crew pickup and employer-sponsored options built in.</p>
+            </div>
+
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">✈️</div>
+                    <div>
+                        <div class="card-title">RoadGame</div>
+                        <div class="card-category">Sports Travel</div>
+                    </div>
+                </div>
+                <p class="card-description">RoadGame is a marketplace that connects youth sports families with travel packages — bundling hotels, activities, and local experiences around tournaments so parents spend less time planning and more time watching their kids play.</p>
+            </div>
+
+            <div class="card" data-category="consumer">
+                <div class="card-header">
+                    <div class="card-icon">🎵</div>
+                    <div>
+                        <div class="card-title">Encore</div>
+                        <div class="card-category">Music Creation</div>
+                    </div>
+                </div>
+                <p class="card-description">Encore is a music creation tool that helps musicians and producers build chord progressions intuitively — combining music theory with an interactive interface to accelerate songwriting and composition.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Enterprise</h2>
+        <div class="grid">
+            <div class="card" data-category="enterprise">
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <div>
+                        <div class="card-title">Flywheel</div>
+                        <div class="card-category">Business Optimization</div>
+                    </div>
+                </div>
+                <p class="card-description">Flywheel maps every point of friction in a business — from onboarding to checkout to support — and turns them into a prioritized, measurable action plan, helping companies identify exactly where they're losing customers and revenue.</p>
+            </div>
+
+            <div class="card" data-category="enterprise">
+                <div class="card-header">
+                    <div class="card-icon">🏭</div>
+                    <div>
+                        <div class="card-title">Venture Forge</div>
+                        <div class="card-category">Venture Studio</div>
+                    </div>
+                </div>
+                <p class="card-description">Venture Forge is the company factory — a systematic framework for identifying market opportunities, validating concepts, and spinning up new ventures with repeatable infrastructure, shared services, and a bias toward speed.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Venture Forge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                document.querySelectorAll('.section-title').forEach(title => {
+                    const section = title.nextElementSibling;
+                    const visibleCards = section.querySelectorAll('.card[style="display: block"], .card:not([style])');
+                    let hasVisible = false;
+                    section.querySelectorAll('.card').forEach(card => {
+                        if (card.style.display !== 'none') hasVisible = true;
+                    });
+                    title.style.display = hasVisible || filter === 'all' ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
