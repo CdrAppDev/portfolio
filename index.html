@@ -147,6 +147,10 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0a0a0a;
             justify-content: center;
         }
 
@@ -319,11 +323,12 @@
         <button class="filter-btn" data-filter="legal">Legal Tech</button>
         <button class="filter-btn" data-filter="consumer">Consumer</button>
         <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+        <button class="filter-btn" data-filter="maritime">Maritime</button>
     </div>
 
     <main class="portfolio">
 
-        <h2 class="section-title">Residential Home Services</h2>
+        <h2 class="section-title" id="section-home-services">Residential Home Services</h2>
         <div class="grid">
             <div class="card" data-category="home-services">
                 <div class="card-header">
@@ -333,7 +338,7 @@
                         <div class="card-category">HVAC</div>
                     </div>
                 </div>
-                <p class="card-description">Atmos is acquiring and modernizing local HVAC companies to build a tech-enabled, subscription-first home climate platform — replacing the industry's broken emergency-call model with proactive maintenance that keeps systems running and customers loyal year-round.</p>
+                <p class="card-description">Atmos is a roll-up of local HVAC companies layered with smart diagnostics, predictive maintenance scheduling, and a subscription model — turning a reactive, emergency-call industry into a proactive home climate platform that keeps systems running and customers loyal year-round.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -344,7 +349,7 @@
                         <div class="card-category">Pool Maintenance</div>
                     </div>
                 </div>
-                <p class="card-description">Clearwater acquires local pool service companies and adds IoT water monitoring, automated chemical management, and subscription maintenance — turning a manual, inconsistent trade into a smart, hands-off ownership experience.</p>
+                <p class="card-description">Clearwater is a roll-up of local pool service companies layered with IoT water monitoring, automated chemical management, and subscription billing — turning a manual, inconsistent trade into a smart, hands-off ownership experience.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -355,7 +360,7 @@
                         <div class="card-category">Lawn Care</div>
                     </div>
                 </div>
-                <p class="card-description">GrassPass turns lawn care into a subscription you never think about — acquiring local crews, routing them with software, and giving homeowners a single app to manage mowing, treatments, and seasonal services at a flat monthly rate.</p>
+                <p class="card-description">GrassPass is a roll-up of local lawn care crews layered with route optimization software, a consumer app, and flat-rate subscription billing — giving homeowners a single platform to manage mowing, treatments, and seasonal services without ever thinking about it.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -366,7 +371,7 @@
                         <div class="card-category">Electrical</div>
                     </div>
                 </div>
-                <p class="card-description">Lumen consolidates local electrical contractors into a modern, consumer-friendly brand with upfront pricing and smart-home expertise — capturing the massive residential demand driven by EV chargers, solar, and aging housing stock.</p>
+                <p class="card-description">Lumen is a roll-up of local electrical contractors layered with upfront digital quoting, smart-home integration expertise, and a modern consumer brand — capturing the massive residential demand driven by EV chargers, solar, and aging housing stock.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -377,7 +382,7 @@
                         <div class="card-category">Plumbing</div>
                     </div>
                 </div>
-                <p class="card-description">Mainline rolls up local plumbing companies under a single brand with transparent pricing, instant online booking, and membership plans — turning a fragmented, trust-deficient industry into a reliable, scalable home services platform.</p>
+                <p class="card-description">Mainline is a roll-up of local plumbing companies layered with transparent digital pricing, instant online booking, and membership plans — turning a fragmented, trust-deficient industry into a reliable, branded home services platform.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -388,7 +393,7 @@
                         <div class="card-category">Painting</div>
                     </div>
                 </div>
-                <p class="card-description">Palette acquires local painting and pressure washing companies and replaces guesswork estimates with instant AI-powered quoting, online scheduling, and guaranteed timelines — making the most visible home improvement the easiest to book.</p>
+                <p class="card-description">Palette is a roll-up of local painting and pressure washing companies layered with AI-powered instant quoting, online scheduling, and guaranteed timelines — making the most visible home improvement the easiest to book.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -399,7 +404,7 @@
                         <div class="card-category">Appliance Repair</div>
                     </div>
                 </div>
-                <p class="card-description">Revive rolls up local appliance repair techs and equips them with AI-powered diagnostics, parts prediction, and same-day scheduling — fixing an industry where homeowners currently wait days for a tech who may not even have the right part.</p>
+                <p class="card-description">Revive is a roll-up of local appliance repair techs layered with AI-powered diagnostics, predictive parts inventory, and same-day scheduling — fixing an industry where homeowners currently wait days for a tech who may not even have the right part.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -410,7 +415,7 @@
                         <div class="card-category">Roofing</div>
                     </div>
                 </div>
-                <p class="card-description">Ridgeline consolidates local roofing companies and pairs them with drone inspections, satellite measurement, and insurance claim automation — turning a high-anxiety, once-a-decade purchase into a transparent, trust-first experience.</p>
+                <p class="card-description">Ridgeline is a roll-up of local roofing companies layered with drone inspections, satellite measurement, and insurance claim automation — turning a high-anxiety, once-a-decade purchase into a transparent, trust-first experience.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -421,7 +426,7 @@
                         <div class="card-category">Pest Control</div>
                     </div>
                 </div>
-                <p class="card-description">Sentinel acquires local pest control operators and upgrades them with smart monitoring, data-driven treatment plans, and subscription billing — replacing the spray-and-pray model with preventive, tech-enabled protection homeowners can see working.</p>
+                <p class="card-description">Sentinel is a roll-up of local pest control operators layered with smart monitoring, data-driven treatment plans, and subscription billing — replacing the spray-and-pray model with preventive, tech-enabled protection homeowners can see working.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -432,7 +437,7 @@
                         <div class="card-category">Remodeling & Repairs</div>
                     </div>
                 </div>
-                <p class="card-description">Turnkey unifies local remodeling and repair contractors under one platform with transparent scoping, fixed pricing, and real-time project tracking — eliminating the cost overruns and communication breakdowns that plague every homeowner renovation.</p>
+                <p class="card-description">Turnkey is a roll-up of local remodeling and repair contractors layered with transparent digital scoping, fixed pricing, and real-time project tracking — eliminating the cost overruns and communication breakdowns that plague every homeowner renovation.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -443,7 +448,7 @@
                         <div class="card-category">Security Systems</div>
                     </div>
                 </div>
-                <p class="card-description">Watchline consolidates local security installers and combines them with a proprietary monitoring platform, smart device integration, and no-contract subscriptions — disrupting the legacy alarm industry's outdated hardware-and-lock-in model.</p>
+                <p class="card-description">Watchline is a roll-up of local security installers layered with a proprietary monitoring platform, smart device integration, and no-contract subscriptions — disrupting the legacy alarm industry's outdated hardware-and-lock-in model.</p>
             </div>
 
             <div class="card" data-category="home-services">
@@ -454,11 +459,11 @@
                         <div class="card-category">Cleaning</div>
                     </div>
                 </div>
-                <p class="card-description">Whiteglove rolls up local cleaning companies and builds a hospitality-grade standard with vetted teams, app-based booking, quality scoring, and consistent results — bringing the reliability of a hotel housekeeping operation into the home.</p>
+                <p class="card-description">Whiteglove is a roll-up of local cleaning companies layered with app-based booking, quality scoring, and hospitality-grade standards — bringing the reliability of a hotel housekeeping operation into the home.</p>
             </div>
         </div>
 
-        <h2 class="section-title">Healthcare</h2>
+        <h2 class="section-title" id="section-healthcare">Healthcare</h2>
         <div class="grid">
             <div class="card" data-category="healthcare">
                 <div class="card-header">
@@ -527,7 +532,7 @@
             </div>
         </div>
 
-        <h2 class="section-title">Legal Tech</h2>
+        <h2 class="section-title" id="section-legal">Legal Tech</h2>
         <div class="grid">
             <div class="card" data-category="legal">
                 <div class="card-header">
@@ -564,7 +569,7 @@
 
         </div>
 
-        <h2 class="section-title">Consumer</h2>
+        <h2 class="section-title" id="section-consumer">Consumer</h2>
         <div class="grid">
             <div class="card" data-category="consumer">
                 <div class="card-header">
@@ -633,7 +638,7 @@
             </div>
         </div>
 
-        <h2 class="section-title">Enterprise</h2>
+        <h2 class="section-title" id="section-enterprise">Enterprise</h2>
         <div class="grid">
             <div class="card" data-category="enterprise">
                 <div class="card-header">
@@ -668,7 +673,11 @@
                 <p class="card-description">Venture Forge is the company factory — a systematic framework for identifying market opportunities, validating concepts, and spinning up new ventures with repeatable infrastructure, shared services, and a bias toward speed.</p>
             </div>
 
-            <div class="card" data-category="enterprise">
+        </div>
+
+        <h2 class="section-title" id="section-maritime">Maritime</h2>
+        <div class="grid">
+            <div class="card" data-category="maritime">
                 <div class="card-header">
                     <div class="card-icon">⚓</div>
                     <div>
@@ -713,30 +722,21 @@
             showContent();
         }
 
-        // Filter functionality
+        // Filter functionality — scroll to section instead of hiding others
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
                 const filter = btn.dataset.filter;
-                document.querySelectorAll('.card').forEach(card => {
-                    if (filter === 'all' || card.dataset.category.includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
+                if (filter === 'all') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const section = document.getElementById('section-' + filter);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                });
-
-                document.querySelectorAll('.section-title').forEach(title => {
-                    const section = title.nextElementSibling;
-                    const visibleCards = section.querySelectorAll('.card[style="display: block"], .card:not([style])');
-                    let hasVisible = false;
-                    section.querySelectorAll('.card').forEach(card => {
-                        if (card.style.display !== 'none') hasVisible = true;
-                    });
-                    title.style.display = hasVisible || filter === 'all' ? 'block' : 'none';
-                });
+                }
             });
         });
     </script>
